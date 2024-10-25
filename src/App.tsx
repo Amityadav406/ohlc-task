@@ -5,10 +5,10 @@ import { OrderBook } from './components/orderBook';
 
 const App = () => {
   return (
-    <React.Fragment>
-      <Chats />
-      <OrderBook />
-    </React.Fragment>
+
+    <Chats />
+
+
   );
 }
 

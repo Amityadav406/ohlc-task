@@ -3,7 +3,7 @@ import { baseURL } from './env';
 
 // handle get API requests 
 export const getApiReq = async (url: string) => {
-  const routeUrl = baseURL + url
+  const routeUrl:string = baseURL + url
   try {
     const response = await axios.get(routeUrl);
     return response.data;
