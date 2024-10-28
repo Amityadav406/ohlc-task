@@ -1,15 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrushIcone, CrossIcon, FiboIcone, PatternIcone, ProjectIcone, SmileIcone, TextIcone, TreadLineIcon } from '../../utils/icons';
+import ApexCharts from 'apexcharts'
+import { data } from '../../utils/constents';
+import { getApiReq } from '../../utils/apihandler'
 
 
 const Chats = () => {
+  const getChartData = () => {
+    getApiReq('/candles/trade%3A1m%3AtBTCUSD/hist')
+      .then((res) => {
+        console.log(res);
 
+      }).catch(e => console.log(e))
+  }
+
+  useEffect(() => {
+    getChartData()
+    var chart = new ApexCharts(document.getElementById('chart'), data.options)
+    chart.render()
+  }, [])
   return (
     <div className='w-full flex justify-end px-5 py-10'>
-      <div className="flex w-full max-w-[75%] flex-col h-[500px] inset-y-0 text-gray-500 bg-[#172d3e]">
-        <div className="bg-[#0e1a2b] text-white font-sans h-screen flex flex-col">
+      <div className="flex w-full max-w-[75%] flex-col inset-y-0 text-gray-500 bg-[#172d3e]">
+        <div className="bg-[#0e1a2b] font-sans flex flex-col">
           <div className="flex justify-between items-center p-3 bg-[#1b2b3a]">
-            <div className="text-sm">CHART BTC/USD</div>
+            <div className=" text-white text-sm">CHART BTC/USD</div>
             <div className="flex items-center space-x-3">
               <label className="flex items-center">
                 <input
@@ -32,7 +47,7 @@ const Chats = () => {
           </div>
 
           {/* Main Chart Content */}
-          <div className="flex-grow relative flex">
+          <div className="flex-col relative flex">
             <div className="absolute left-0 top-0 bottom-0 w-12 bg-[#1b2b3a] flex flex-col items-center space-y-4 py-3">
               <span className='text-gray-500 cursor-pointer hover:text-white'>
                 {CrossIcon()}
@@ -58,13 +73,8 @@ const Chats = () => {
               <span className='text-gray-500 cursor-pointer hover:text-white'>
                 {SmileIcone()}
               </span>
-              
-          
             </div>
-            <div className="flex-grow bg-[#0e1a2b] border border-[#1b2b3a] flex justify-center items-center">
-              <div className=''>
-                
-              </div>
+            <div id='chart' className="bg-[#0e1a2b] w-full">
             </div>
           </div>
 

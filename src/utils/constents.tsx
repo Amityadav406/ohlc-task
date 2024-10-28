@@ -1,14 +1,22 @@
 export const data = {
 
     options: {
-        xaxis: {
+        chart: {
+            type: 'candlestick',
+            height: 350
+          },
+          title: {
+            
+            align: 'right'
+          },
+          xaxis: {
             type: 'datetime'
-        },
-        yaxis: {
+          },
+          yaxis: {
             tooltip: {
-                enabled: true
+              enabled: true
             }
-        },
+          },
         series: [{
             data: [{
                 x: new Date(1538778600000),
@@ -252,9 +260,15 @@ export const data = {
             },
             ]
         }],
-
-    },
-
+        plotOptions: {
+            candlestick: {
+              wick: {
+                useFillColor: true,
+              }
+            }
+          },
+      
+    }
 
 };
 
