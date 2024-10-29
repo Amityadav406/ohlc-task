@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import ApexCharts from 'apexcharts'
 import { data } from '../../utils/constants';
 import Checkbox from '../../components/Checkbox';
@@ -6,7 +6,10 @@ import Checkbox from '../../components/Checkbox';
 const ChartIcon = React.lazy(() => import('../../components/ChartIcon'))
 const TimeFrames = React.lazy(() => import('../../components/TimeFrames'))
 
-const Chats = () => {
+const Chats: React.FC = () => {
+
+  const [selectedRange, setSelectedRange] = useState<string>('1h');
+
 
   useEffect(() => {
     var chart = new ApexCharts(document.getElementById('chart'), data.options)
@@ -33,7 +36,7 @@ const Chats = () => {
           </div>
         </div>
 
-        <TimeFrames />
+        <TimeFrames selectedRange={selectedRange} setSelectedRange={setSelectedRange} />
       </div>
     </div>
 

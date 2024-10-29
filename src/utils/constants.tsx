@@ -309,3 +309,10 @@ export const data = {
 
 };
 
+export const timeRange = [
+    '3y', '1y', '3m', '1m', '7d', '3d', '1d', '6h', '1h',
+]
+
+export const timeRangeMapper = {
+    '3y': '1W', '1y': '1D', '3m': '12h', '1m': '6h', '7d': '1h', '3d': '30m', '1d': '15m', '6h': '5m', '1h': '1m',
+}
