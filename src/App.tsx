@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
-import Chats from './components/chats';
-import { OrderBook } from './components/orderBook';
+
+const OrderBook = React.lazy(() => import('./container/orderBook'));
+const Chats = React.lazy(() => import('./container/chats'))
 
 const App = () => {
   return (
-
-    <Chats />
-
-
+    <React.Suspense fallback={<p>...loading</p>}>
+      <Chats />
+      <OrderBook />
+    </React.Suspense>
   );
 }
 
