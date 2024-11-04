@@ -1,11 +1,8 @@
-import React from 'react'
 import { timeRange } from '../../utils/constants';
-
 
 interface TimeFramesProps {
     selectedRange: string;
     setSelectedRange: (val: string) => void;
-    [rest: string]: any;
 }
 
 
@@ -16,12 +13,12 @@ const TimeFrames = ({ selectedRange, setSelectedRange }: TimeFramesProps) => {
                 {timeRange.map((item, index) => (
                     <button
                         key={index}
-                        onClick={() => setSelectedRange(item)} className={`cursor-pointer hover:shadow-lg hover:text-white ${item === selectedRange && 'text-white'}`}>{item}</button>
+                        onClick={() => setSelectedRange(item)} className={`cursor-pointer  shadow hover:shadow-lg hover:text-white ${item === selectedRange && 'text-white'}`}>{item}</button>
 
                 ))}
 
             </div>
-            <div className="text-sm pr-5"> 00:00:00(UTC)</div>
+            {/* <div className="text-sm pr-5"> 00:00:00(UTC)</div> */}
         </div>
     )
 }

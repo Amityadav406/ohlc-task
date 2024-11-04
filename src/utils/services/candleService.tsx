@@ -2,28 +2,16 @@ import axios from "axios";
 import { candleAPi } from "./api"
 import { timeRangeMapper } from '../constants'
 
-interface candleServiceProps {
-    timeRange: string
-}
-
-export const candleService = async (timeRange: candleServiceProps) => {
-    const apiUrl = candleAPi(timeRange);
-    let data;
-    let error;
+export const candleService = async (timeRange: string): Promise<any> => {
+    const apiUrl = candleAPi(timeRangeMapper[timeRange]);
 
     try {
-        axios.get(apiUrl).then((res: any) => {
-            if (res.data) {
-                data = res.data;
-            }
-        }).catch((e: any) => {
-            error = e;
-        });
-    } catch (err) {
-        error = err
-
+        const response = await axios.get(apiUrl);
+        if (response.status === 200) {
+            return response.data;
+        }
+        throw new Error(`Unexpected status code: ${response.status}`);
+    } catch (error) {
+        return error;
     }
-    return {
-        data, error
-    }
-}
+};

@@ -16,3 +16,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.apexcharts-tooltip-candlestick {
+  background: #172d3e;
+  font-size: larger;
+  display: flex !important;
+  border: none;
+  gap: 10px;
+  box-shadow: none;
+}
+.apexcharts-tooltip-candlestick span {
+  margin-right: 5px;
+}
+.apexcharts-tooltip {
+  opacity: 1 !important;
+}
