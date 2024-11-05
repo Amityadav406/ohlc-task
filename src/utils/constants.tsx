@@ -10,10 +10,14 @@ export const chartData: ApexOptions = {
         },
 
     },
+    colors: ['#01a781', '#e44b44'],
+    fill: {
+        colors: ['#01a781', '#e44b44']
+    },
     tooltip: {
         enabled: true,
+        fillSeriesColor: true,
         custom: function ({ seriesIndex, dataPointIndex, w }) {
-            console.log(w.globals)
             const o = w.globals.seriesCandleO[seriesIndex][dataPointIndex]
             const h = w.globals.seriesCandleH[seriesIndex][dataPointIndex]
             const l = w.globals.seriesCandleL[seriesIndex][dataPointIndex]
@@ -33,27 +37,39 @@ export const chartData: ApexOptions = {
                 '<div>C: <span class="value">' +
                 c +
                 '</span></div>' +
-                '<div>V: <span class="value">' +
-                c +
-                '</span></div>' +
                 '</div>'
             )
 
         },
-        fillSeriesColor: true,
+
         fixed: {
             enabled: true,
             position: 'topLeft',
-            offsetX: 70,
+            offsetX: 75,
             offsetY: -35,
         },
     },
 
     xaxis: {
         type: "datetime",
+        labels:{
+            style:{
+                colors:'#71808a'
+            }
+        },
+        tooltip: {
+        style: {
+            fontSize: '10px',
+        }
+    }
     },
     yaxis: {
         opposite: true,
+        labels:{
+            style:{
+                colors:'#71808a'
+            }
+        },
         tooltip: {
             enabled: true,
         },

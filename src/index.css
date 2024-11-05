@@ -16,9 +16,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 .apexcharts-tooltip-candlestick {
   background: #172d3e;
-  font-size: medium;
+  font-size: 15px;
+  font-weight: 700;
   display: flex !important;
   border: none;
   gap: 10px;
@@ -29,7 +31,15 @@ code {
 }
 .apexcharts-tooltip {
   opacity: 1 !important;
+  box-shadow: none !important;
+  border-radius:0;
+  
 }
 .apexcharts-tooltip-candlestick div {
-  width: 80px;
+  width: 70px;
+}
+.apexcharts-tooltip.apexcharts-theme-light{
+  border: none !important;
+  background:transparent !important;
+  display:block !important
 }
