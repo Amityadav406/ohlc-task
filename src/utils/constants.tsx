@@ -13,10 +13,12 @@ export const chartData: ApexOptions = {
     tooltip: {
         enabled: true,
         custom: function ({ seriesIndex, dataPointIndex, w }) {
+            console.log(w.globals)
             const o = w.globals.seriesCandleO[seriesIndex][dataPointIndex]
             const h = w.globals.seriesCandleH[seriesIndex][dataPointIndex]
             const l = w.globals.seriesCandleL[seriesIndex][dataPointIndex]
             const c = w.globals.seriesCandleC[seriesIndex][dataPointIndex]
+            // const v = w.globals.seriesCandleV[seriesIndex][dataPointIndex]
             return (
                 '<div class="apexcharts-tooltip-candlestick">' +
                 '<div>O: <span class="value">' +
@@ -31,6 +33,9 @@ export const chartData: ApexOptions = {
                 '<div>C: <span class="value">' +
                 c +
                 '</span></div>' +
+                '<div>V: <span class="value">' +
+                c +
+                '</span></div>' +
                 '</div>'
             )
 
@@ -40,7 +45,7 @@ export const chartData: ApexOptions = {
             enabled: true,
             position: 'topLeft',
             offsetX: 70,
-            offsetY: 0,
+            offsetY: -35,
         },
     },
 

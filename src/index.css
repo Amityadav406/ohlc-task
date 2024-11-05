@@ -18,7 +18,7 @@ code {
 }
 .apexcharts-tooltip-candlestick {
   background: #172d3e;
-  font-size: larger;
+  font-size: medium;
   display: flex !important;
   border: none;
   gap: 10px;
@@ -29,4 +29,7 @@ code {
 }
 .apexcharts-tooltip {
   opacity: 1 !important;
+}
+.apexcharts-tooltip-candlestick div {
+  width: 80px;
 }
